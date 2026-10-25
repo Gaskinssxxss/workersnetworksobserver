@@ -1,6 +1,4 @@
-# Workers’ Network Observatory
-
-**Modular Network Telemetry Collection & Classification**
+# Validated Network Telemetry Collectors
 
 This is a curated copy containing only the 33 tasks marked exactly `VALIDATED` in the project's real-world validation matrix. The other 7 tasks are omitted, including their entry points and shared-source schemas.
 
@@ -18,4 +16,4 @@ Tasks excluded because they were single-trial, partial, or blocked: 14 (VALIDATE
 
 Each retained collector remains a separate Python command. No master workflow or scheduler is included. Run `python3 <collector>.py --help` for its options. Python standard library only; native source utilities and permissions vary by task.
 
-The historical raw evidence files remain in the original project’s `validation/` directory and are not copied into this curated repository. `VALIDATION_STATUS.json` preserves each retained task’s evidence reference and note; retain the original `validation/` tree alongside this release when publishing evidence. Review host-specific metadata before publishing it.
+Run the retained focused tests with `python3 -m unittest discover -v`. The historical raw evidence files remain in the original project’s `validation/` directory and are not copied into this curated repository. `VALIDATION_STATUS.json` preserves each retained task’s evidence reference and note; retain the original `validation/` tree alongside this release when publishing evidence. Review host-specific metadata before publishing it.
