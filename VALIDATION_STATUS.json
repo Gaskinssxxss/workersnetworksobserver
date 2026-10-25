@@ -1,0 +1,277 @@
+{
+  "basis": "validation/full40/TASK_STATUS_MATRIX.json from source project",
+  "included_status": "VALIDATED",
+  "included_task_count": 33,
+  "excluded_task_count": 7,
+  "scope_note": "VALIDATED means the named scenario/source in the matrix passed; it is not universal or cross-environment certification.",
+  "included_tasks": [
+    {
+      "task": 1,
+      "status": "VALIDATED",
+      "records": 51,
+      "note": "IPv4/IPv6 snapshots, add/replace/remove observations; snapshot only",
+      "evidence": "../phase1/evidence/results.jsonl"
+    },
+    {
+      "task": 2,
+      "status": "VALIDATED",
+      "records": 78,
+      "note": "IPv4/IPv6 routes including default and test routes",
+      "evidence": "../phase1/evidence/results.jsonl"
+    },
+    {
+      "task": 3,
+      "status": "VALIDATED",
+      "records": 36,
+      "note": "IPv4/IPv6 policy rules",
+      "evidence": "../phase1/evidence/results.jsonl"
+    },
+    {
+      "task": 4,
+      "status": "VALIDATED",
+      "records": 4,
+      "note": "GRE tunnel plus kernel default tunnel devices; read-only snapshot",
+      "evidence": "evidence/task04.native.json"
+    },
+    {
+      "task": 5,
+      "status": "VALIDATED",
+      "records": 24,
+      "note": "Native IPv4/IPv6 and ICMP counters",
+      "evidence": "../phase1/evidence/results.jsonl"
+    },
+    {
+      "task": 6,
+      "status": "VALIDATED",
+      "records": 3,
+      "note": "TCP listening endpoint snapshots",
+      "evidence": "../phase1/evidence/results.jsonl"
+    },
+    {
+      "task": 7,
+      "status": "VALIDATED",
+      "records": 3,
+      "note": "Established TCP snapshots; no lifecycle inference",
+      "evidence": "../phase1/evidence/results.jsonl"
+    },
+    {
+      "task": 8,
+      "status": "VALIDATED",
+      "records": 3,
+      "note": "UDP endpoints; no QUIC inference",
+      "evidence": "../phase1/evidence/results.jsonl"
+    },
+    {
+      "task": 9,
+      "status": "VALIDATED",
+      "records": 1,
+      "note": "Native conntrack entry matched inside disposable container namespace; unprivileged host run returned PERMISSION_DENIED",
+      "evidence": "evidence/task09.native.txt"
+    },
+    {
+      "task": 10,
+      "status": "VALIDATED",
+      "records": 3,
+      "note": "NAT rule detections; phase 2 reports 27/27 total checks across Tasks 10-12",
+      "evidence": "../phase2/evidence/results.jsonl"
+    },
+    {
+      "task": 11,
+      "status": "VALIDATED",
+      "records": 21,
+      "note": "Firewall tables/chains/rules and counters",
+      "evidence": "../phase2/evidence/results.jsonl"
+    },
+    {
+      "task": 12,
+      "status": "VALIDATED",
+      "records": 3,
+      "note": "Rate-limit configuration and counters",
+      "evidence": "../phase2/evidence/results.jsonl"
+    },
+    {
+      "task": 13,
+      "status": "VALIDATED",
+      "records": 29,
+      "note": "TCP performance and native counter records over three trials",
+      "evidence": "../phase3/evidence/results.jsonl"
+    },
+    {
+      "task": 15,
+      "status": "VALIDATED",
+      "records": 3,
+      "note": "One real TLS metadata record in each of three nginx TLS trials",
+      "evidence": "evidence/results.jsonl"
+    },
+    {
+      "task": 17,
+      "status": "VALIDATED",
+      "records": 12,
+      "note": "Nine nginx access-log observations across three trials plus three unique systemd-journal JSON MESSAGE records; each journal comparison matched 4/4 fields",
+      "evidence": "evidence/industry_task17_journal_trials.jsonl"
+    },
+    {
+      "task": 18,
+      "status": "VALIDATED",
+      "records": 6,
+      "note": "Real gRPC Echo success and controlled UNAVAILABLE result across three trials",
+      "evidence": "evidence/results.jsonl"
+    },
+    {
+      "task": 19,
+      "status": "VALIDATED",
+      "records": 293,
+      "note": "systemd service state and listener associations snapshot",
+      "evidence": "evidence/task19.stdout.jsonl"
+    },
+    {
+      "task": 20,
+      "status": "VALIDATED",
+      "records": 1,
+      "note": "Avahi service registration discovered in isolated namespace",
+      "evidence": "evidence/task20.stdout.jsonl"
+    },
+    {
+      "task": 21,
+      "status": "VALIDATED",
+      "records": 9,
+      "note": "Three app-native session events across three controlled trials",
+      "evidence": "evidence/results.jsonl"
+    },
+    {
+      "task": 24,
+      "status": "VALIDATED",
+      "records": 12,
+      "note": "Envoy listeners/routes/upstream configuration, three trials",
+      "evidence": "evidence/results.jsonl"
+    },
+    {
+      "task": 25,
+      "status": "VALIDATED",
+      "records": 6,
+      "note": "Envoy upstream endpoint health snapshots, three trials",
+      "evidence": "evidence/results.jsonl"
+    },
+    {
+      "task": 27,
+      "status": "VALIDATED",
+      "records": 15,
+      "note": "Native app retry/timeout/circuit-breaker fixture observations, three trials",
+      "evidence": "evidence/results.jsonl"
+    },
+    {
+      "task": 28,
+      "status": "VALIDATED",
+      "records": 2,
+      "note": "Namespace inventory snapshot",
+      "evidence": "evidence/task28.stdout.jsonl"
+    },
+    {
+      "task": 29,
+      "status": "VALIDATED",
+      "records": 34,
+      "note": "ss socket/process associations snapshot",
+      "evidence": "evidence/task29.stdout.jsonl"
+    },
+    {
+      "task": 30,
+      "status": "VALIDATED",
+      "records": 8,
+      "note": "Existing libvirt VM interface snapshots; existing VMs not modified",
+      "evidence": "evidence/task30.raw.json"
+    },
+    {
+      "task": 31,
+      "status": "VALIDATED",
+      "records": 1,
+      "note": "Targeted Docker container network attachment matched docker inspect",
+      "evidence": "evidence/task31.native.json"
+    },
+    {
+      "task": 32,
+      "status": "VALIDATED",
+      "records": 9,
+      "note": "Pod, Service, EndpointSlice matched independent kubectl JSON in three trials",
+      "evidence": "evidence/kubernetes_results.jsonl"
+    },
+    {
+      "task": 33,
+      "status": "VALIDATED",
+      "records": 3,
+      "note": "NetworkPolicy matched independent kubectl JSON in three trials; enforcement behavior not separately tested",
+      "evidence": "evidence/kubernetes_results.jsonl"
+    },
+    {
+      "task": 34,
+      "status": "VALIDATED",
+      "records": 18,
+      "note": "Envoy native admin configuration snapshots, three trials",
+      "evidence": "evidence/results.jsonl"
+    },
+    {
+      "task": 36,
+      "status": "VALIDATED",
+      "records": 58,
+      "note": "Telemetry source inventory snapshot",
+      "evidence": "evidence/task36.stdout.jsonl"
+    },
+    {
+      "task": 37,
+      "status": "VALIDATED",
+      "records": 2,
+      "note": "Collection target inventory snapshot",
+      "evidence": "evidence/task37.stdout.jsonl"
+    },
+    {
+      "task": 39,
+      "status": "VALIDATED",
+      "records": 1,
+      "note": "Host telemetry context snapshot",
+      "evidence": "evidence/task39.stdout.jsonl"
+    },
+    {
+      "task": 40,
+      "status": "VALIDATED",
+      "records": 5,
+      "note": "Collection status snapshot",
+      "evidence": "evidence/task40.stdout.jsonl"
+    }
+  ],
+  "excluded_tasks": [
+    {
+      "task": 14,
+      "status": "VALIDATED_SINGLE_TRIAL",
+      "note": "One isolated loopback SSH authentication/session; 5 native journal events matched, 15/15 compared fields exact; LOCAL0 facility and bounded time window"
+    },
+    {
+      "task": 16,
+      "status": "PARTIAL",
+      "note": "Three loopback dnsmasq A queries/replies: 6 DNS events, 12/12 compared fields exact; systemd resolver statistics remain PERMISSION_DENIED and journal query events EMPTY"
+    },
+    {
+      "task": 22,
+      "status": "VALIDATED_SINGLE_TRIAL",
+      "note": "PostgreSQL pg_stat_activity active TCP connection; one trial; only source columns were passed to collector"
+    },
+    {
+      "task": 23,
+      "status": "VALIDATED_SINGLE_TRIAL",
+      "note": "RabbitMQ native CLI connection and channel/consumer observations; one trial"
+    },
+    {
+      "task": 26,
+      "status": "PARTIAL",
+      "note": "Active/pending gauges validated; upstream_cx_idle gauge unavailable in this Envoy configuration"
+    },
+    {
+      "task": 35,
+      "status": "BLOCKED",
+      "note": "Disposable OpenStack DevStack VM failed Neutron API startup; endpoint returned HTTP 500; no cloud records emitted"
+    },
+    {
+      "task": 38,
+      "status": "PARTIAL",
+      "note": "Root-visible tracepoint configuration only; no trace-event delivery telemetry; unprivileged invocation PERMISSION_DENIED"
+    }
+  ]
+}
