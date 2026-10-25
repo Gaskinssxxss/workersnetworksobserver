@@ -1,19 +1,60 @@
-# Validated Network Telemetry Collectors
+# Workers’ Network Observatory
 
-This is a curated copy containing only the 33 tasks marked exactly `VALIDATED` in the project's real-world validation matrix. The other 7 tasks are omitted, including their entry points and shared-source schemas.
+### Modular Network Telemetry Collection & Classification
 
-## Included task IDs
+A portfolio of small, read-only Python automations for collecting server network telemetry from Linux and existing application sources.
 
-01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 15, 17, 18, 19, 20, 21, 24, 25, 27, 28, 29, 30, 31, 32, 33, 34, 36, 37, 39, 40
+Workers’ Network Observatory organizes observations by network object and layer. Each task can be run from the command line and emits structured JSONL for downstream tools.
 
-## Important scope
+## What’s inside
 
-`VALIDATED` means a named source and scenario matched the evidence recorded in [`VALIDATION_STATUS.json`](VALIDATION_STATUS.json). It is not a claim of 100% correctness on every Linux distribution, kernel, service configuration, cloud, or production network. Snapshots are not lifecycle histories. Task 33 evidence validates NetworkPolicy object collection; dataplane enforcement was not separately tested.
+The release contains 33 task scopes, grouped by domain:
 
-Tasks excluded because they were single-trial, partial, or blocked: 14 (VALIDATED_SINGLE_TRIAL), 16 (PARTIAL), 22 (VALIDATED_SINGLE_TRIAL), 23 (VALIDATED_SINGLE_TRIAL), 26 (PARTIAL), 35 (BLOCKED), 38 (PARTIAL).
+| Domain | Tasks | Coverage |
+|---|---|---|
+| **L3 · IP networking** | 01–05 | Addresses, routes, policy rules, tunnels, IP protocol counters |
+| **L4 · Transport** | 06–13 | Endpoints, TCP connections, UDP sockets, conntrack, nftables, transport performance |
+| **L5–L7 · Application networking** | 15, 17–21, 24–25, 27 | TLS, HTTP, API/RPC, services, discovery, application sessions, proxy and upstream observations, resilience |
+| **Runtime & virtualization** | 28–34 | Namespaces, process sockets, VMs, containers, Kubernetes, service mesh |
+| **Observability context** | 36–37, 39–40 | Telemetry sources, collection targets, host context, collection status |
 
-## Run independently
+For the exact task-to-module mapping and source requirements, see [Automation Coverage](AUTOMATION_COVERAGE.md).
 
-Each retained collector remains a separate Python command. No master workflow or scheduler is included. Run `python3 <collector>.py --help` for its options. Python standard library only; native source utilities and permissions vary by task.
+## Run a task
 
-Run the retained focused tests with `python3 -m unittest discover -v`. The historical raw evidence files remain in the original project’s `validation/` directory and are not copied into this curated repository. `VALIDATION_STATUS.json` preserves each retained task’s evidence reference and note; retain the original `validation/` tree alongside this release when publishing evidence. Review host-specific metadata before publishing it.
+**Requirements:** Linux and Python 3.11 or newer. Collectors use the Python standard library; each task may also need its native Linux utility, application source, or read-only permission.
+
+```bash
+python3 ip_address_collector.py --help
+python3 ip_address_collector.py
+```
+
+Other examples:
+
+```bash
+python3 route_collector.py
+python3 nftables_snapshot_collector.py --help
+python3 kubernetes_networking_collector.py --namespace payments
+```
+
+There is no master collector or scheduler. Run the task you need; use `--help` to see its inputs and optional evidence output.
+
+## Output
+
+- **stdout:** one telemetry record per JSONL line
+- **stderr:** structured collection status, including source outcomes
+- **Raw evidence:** optional and controlled by task-specific arguments
+
+Collection outcomes distinguish `AVAILABLE`, `EMPTY`, `UNAVAILABLE`, and `PERMISSION_DENIED`. Missing tools or access are reported by the collector; the project does not require `sudo` or change host network configuration.
+
+## Validation
+
+The 33 included task scopes are marked `VALIDATED` in [the validation summary](VALIDATION_STATUS.json). That label refers to the named sources and scenarios recorded for this project; it is not a universal guarantee across all Linux distributions, kernels, applications, cloud providers, or production configurations.
+
+Collectors that read snapshots report the source state at collection time; they do not create a complete lifecycle history. Task 33 collects Kubernetes NetworkPolicy objects. Its validation does not cover dataplane enforcement.
+
+Raw scenario evidence is maintained separately from this code release. The summary preserves the evidence references; review the referenced artifacts and remove environment-specific details before publishing them.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
